@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import './Product.scss'
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -129,6 +129,8 @@ export default function Product() {
             description: "Backpack"
         },
     ]
+
+    const sliderRef = useRef(null);
     
     const settings = {
         infinite: true,
@@ -139,21 +141,36 @@ export default function Product() {
         nextArrow: <div className="slick-arrow slick-next">Phải</div>,
     };
       
+    const handlePrev = () => {
+        if (sliderRef.current) {
+            sliderRef.current.slickPrev();
+        }
+    }
+    const handleNext = () => {
+        if (sliderRef.current) {
+            sliderRef.current.slickNext();
+        }
+    }
   return (
     <div className='product-component' id='product'>
         <h1 className='text'>WE MAKE YOU AWESOME</h1> 
 
         <div className='tab-bar'>
-            <AiOutlineBars />
-            <BiCart />
-
-            <GrFormNext />
-            <GrFormPrevious />
+            <div>
+                <AiOutlineBars style={{ fontSize: '32px',cursor: "pointer", borderRight: "1px solid #ccc", paddingRight: "10px"}} />
+                <BiCart style={{ fontSize: '32px',cursor: "pointer", paddingLeft: "10px"}}/>
+            </div>
+            <div>
+                
+                <GrFormPrevious  style={{ fontSize: '40px', cursor: "pointer"}} onClick={() => handlePrev()}/>
+                <GrFormNext  style={{ fontSize: '40px',cursor: "pointer"}} onClick={() => handleNext()}/>
+                
+            </div>
 
         </div>
 
         <div className='slider'>
-            <Slider {...settings}>
+            <Slider ref={sliderRef} {...settings}>
 
                 {
                     bags.map((item, index) => {

@@ -16,6 +16,11 @@ import bag10 from '../image/bags/thumb10.jpg'
 import bag12 from '../image/bags/thumb12.jpg'
 import bag13 from '../image/bags/thumb13.jpg'
 import bag14 from '../image/bags/thumb14.jpg'
+
+import { AiOutlineBars } from 'react-icons/ai';
+import { BiCart } from 'react-icons/bi';
+import { GrFormNext } from 'react-icons/gr';
+import { GrFormPrevious } from 'react-icons/gr';
 export default function Product() {
 
     const bags = [
@@ -137,6 +142,15 @@ export default function Product() {
   return (
     <div className='product-component' id='product'>
         <h1 className='text'>WE MAKE YOU AWESOME</h1> 
+
+        <div className='tab-bar'>
+            <AiOutlineBars />
+            <BiCart />
+
+            <GrFormNext />
+            <GrFormPrevious />
+
+        </div>
 
         <div className='slider'>
             <Slider {...settings}>

@@ -1,0 +1,33 @@
+.about-us {
+    background-color: white;
+    .fact-icon {
+
+        i {
+            &::before {
+                font-family: 'Simple-Line-Icons';
+                content: attr(data-icon);
+                speak: none;
+                font-weight: normal;
+                font-variant: normal;
+                text-transform: none;
+                line-height: 1;
+                -webkit-font-smoothing: antialiased;
+    
+            }
+
+        }
+
+        &::after {
+            display: block;
+            content: '';
+            width: 20px;
+            height: 2px;
+            position: absolute;
+            background-color: #e0e0e0;
+            bottom: -15px;
+            left: 50%;
+            margin-left: -10px;
+        }
+    }
+
+}

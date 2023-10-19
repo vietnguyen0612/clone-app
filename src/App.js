@@ -8,6 +8,8 @@ import CheckOut from './component/CheckOut';
 import './App.scss'
 import Testimonial from './component/Testimonial';
 import News from './component/News';
+import VideoSection from './component/VideoSection';
+import AboutUs from './component/AboutUs';
 function App() {
   return (
     <div className="App">
@@ -18,6 +20,9 @@ function App() {
       <CheckOut />
       <Testimonial />
       <News />
+      <VideoSection />
+      <AboutUs />
+
       <div className='back-ground-reviews'></div>
     </div>
   );

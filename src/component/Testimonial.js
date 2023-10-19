@@ -35,7 +35,7 @@ export default function Testimonial() {
         }
     }
   return (
-    <div className='testimonial'>
+    <div className='testimonial' id="review">
         <Slider ref={sliderRef} {...settings}>
 
             <div className='text-content'>

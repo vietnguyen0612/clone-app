@@ -43,7 +43,7 @@ export default function () {
                         <li> <a href='#band'>BRANDS</a></li>
                         <li> <a href='#why-us'>WHY TRIABLO</a></li>
                         <li> <a href='#team'>TEAM</a></li>
-                        <li>REVIEWS</li>
+                        <li> <a href='#review'>REVIEWS</a></li>
                         <li>ABOUT US</li>
                         <li>NEWS</li>
                     

@@ -7,6 +7,7 @@ import CheckOut from './component/CheckOut';
 
 import './App.scss'
 import Testimonial from './component/Testimonial';
+import News from './component/News';
 function App() {
   return (
     <div className="App">
@@ -16,6 +17,7 @@ function App() {
       <OurTeam />
       <CheckOut />
       <Testimonial />
+      <News />
       <div className='back-ground-reviews'></div>
     </div>
   );

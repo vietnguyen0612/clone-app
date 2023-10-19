@@ -55,7 +55,7 @@ export default function Testimonial() {
 
             <div className='text-content'>
                 <div className="image">
-                    <img src={auth1} alt='abc' className="image"/>
+                    <img src={auth3} alt='abc' className="image"/>
 
                 </div>
                 <p className='name-country'>
@@ -70,7 +70,7 @@ export default function Testimonial() {
 
             <div className='text-content'>
                 <div className="image">
-                    <img src={auth1} alt='abc' className="image"/>
+                    <img src={auth2} alt='abc' className="image"/>
 
                 </div>
                 <p className='name-country'>
@@ -87,8 +87,8 @@ export default function Testimonial() {
 
         <div className='prev-next-button'>
             <div className='contain-btn'>
-            <GrFormPrevious className='btn' />
-            <GrFormNext  className='btn'/>        
+            <GrFormPrevious className='btn' onClick={() => handlePrev()} style={{color : "white", cursor: "pointer"}}/>
+            <GrFormNext  className='btn' onClick={() => handleNext()} style={{color : "white", cursor: "pointer"}}/>        
 
             </div>
         </div>

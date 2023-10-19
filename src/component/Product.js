@@ -17,10 +17,17 @@ import bag12 from '../image/bags/thumb12.jpg'
 import bag13 from '../image/bags/thumb13.jpg'
 import bag14 from '../image/bags/thumb14.jpg'
 
+import band1 from "../image/barnds/brand1.png"
+import band2 from "../image/barnds/brand2.png"
+import band3 from "../image/barnds/brand3.png"
+import band4 from "../image/barnds/brand4.png"
+
 import { AiOutlineBars } from 'react-icons/ai';
 import { BiCart } from 'react-icons/bi';
 import { GrFormNext } from 'react-icons/gr';
 import { GrFormPrevious } from 'react-icons/gr';
+import { IoSearchCircleOutline } from 'react-icons/io5';
+import { AiOutlinePlusCircle } from 'react-icons/ai';
 export default function Product() {
 
     const bags = [
@@ -197,6 +204,11 @@ export default function Product() {
                                         </div>
                                     </div>
                                 </div>
+
+                                <div className='search-add-product'>
+                                    <IoSearchCircleOutline className='search-icon' />
+                                    <AiOutlinePlusCircle  className='add-icon'/> 
+                                </div>
                             </div>
                         )
                     })
@@ -207,6 +219,13 @@ export default function Product() {
                 
 
             </Slider>
+        </div>
+
+        <div className="bands">
+            <img className='band' src={band1} alt='thuong hieu' />
+            <img className='band' src={band2} alt='thuong hieu' />
+            <img className='band' src={band3} alt='thuong hieu' />
+            <img className='band' src={band4} alt='thuong hieu' />
         </div>
     </div>
   )

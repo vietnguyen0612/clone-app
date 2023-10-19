@@ -221,7 +221,7 @@ export default function Product() {
             </Slider>
         </div>
 
-        <div className="bands">
+        <div className="bands" id='band'>
             <img className='band' src={band1} alt='thuong hieu' />
             <img className='band' src={band2} alt='thuong hieu' />
             <img className='band' src={band3} alt='thuong hieu' />

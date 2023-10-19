@@ -1,0 +1,56 @@
+.testimonial {
+    padding: 90px 0;
+    position: relative;
+    
+    .text-content {
+        .image {
+            display: flex;
+            justify-content: center;
+            img {
+                width: 70px;
+                height: 70px;
+            }
+    
+        }
+        .name-country {
+            color: white;
+            text-align: center;
+        }
+
+        .main-testi {
+            p {
+                color: white;
+                text-align: center;
+                max-width: 1000px;
+                margin: 0 auto;
+            }
+
+        }
+    }
+
+    .prev-next-button {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        
+
+        .contain-btn {
+            position: absolute;
+            top: 70px;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+
+            .btn {
+                color: white;
+                font-size: 60px;
+            }
+        }
+
+    }
+
+}

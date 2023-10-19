@@ -1,6 +1,19 @@
 .App {
-    
     font-family: 'Fira Sans',sans-serif;
     overflow: hidden;
-   
+
+    position: relative;
+
+    .back-ground-reviews {
+        position: fixed;
+        top: 0;
+        left: 0;
+
+        width: 100vw;
+        height: 100vh;
+
+        background-image: url("./image/reviews-bg.jpg");
+        z-index: -100;
+    }
+    
 }

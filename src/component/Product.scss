@@ -69,6 +69,10 @@
             height: 390px;
             padding: 20px;
             cursor: pointer;
+            @include mobile {
+                height: 455px;
+                width: 90% !important; 
+            }
             &:hover {
 
                 .image {

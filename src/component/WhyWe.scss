@@ -21,6 +21,22 @@
     }
   }
 
+  @keyframes fadeInOut {
+    0% {
+      opacity: 0;
+      
+    }
+    20% {
+      opacity: 1;
+    }
+    80% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+}
+
 .why-we {
     background-color: #eeeced;
     padding-top: 75px;
@@ -45,6 +61,10 @@
                flex: 1;
                text-align: center;
             }
+        }
+
+        @include mobile {
+            justify-content: center;
         }
 
         .whyus-content-left {
@@ -72,6 +92,9 @@
                     color: #424242;
                     text-transform: uppercase;
                     margin-bottom: 15px;
+                    @include mobile {
+                        text-align: center;
+                    }
                 }
                 p {
                     text-align: right;
@@ -80,16 +103,25 @@
                     color: #424242;
                     font-weight: 300;
                     font-family: 'Fira Sans',sans-serif;
+                    @include mobile {
+                        text-align: center;
+                    }
                 }
             }
         }
 
         .whyus-bg {
-            
+            position: relative;
             height: 590px;
             img {
                 height: 590px;
                 width: 340px;
+            }
+            .img2 {
+                transform: translateY(-102%);
+            }   
+            .img3 {
+                transform: translateY(-202%);
             }
         }
 
@@ -119,6 +151,9 @@
                     color: #424242;
                     text-transform: uppercase;
                     margin-bottom: 15px;
+                    @include mobile {
+                        text-align: center;
+                    }
                 }
                 p {
                     text-align: left;
@@ -127,6 +162,9 @@
                     color: #424242;
                     font-weight: 300;
                     font-family: 'Fira Sans',sans-serif;
+                    @include mobile {
+                        text-align: center;
+                    }
                 }
             }
         }
@@ -137,6 +175,9 @@
             align-items: center;
             opacity: 0;
             .icon {
+                @include tablet {
+                    display: none;
+                }
                 font-size: 150px;
             }
         }

@@ -17,13 +17,10 @@ export default function WhyWe() {
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
-        // Sử dụng setInterval để cập nhật hình ảnh sau mỗi khoảng thời gian (ví dụ: sau 3 giây)
         const intervalId = setInterval(() => {
-          // Tăng chỉ số hình ảnh hiện tại, quay lại 0 nếu đã đến hình cuối cùng
           setCurrentImageIndex((prevIndex) => (prevIndex + 1) % imagePaths.length);
-        }, 3000); // 3000ms = 3 giây
+        }, 3000); 
     
-        // Xóa interval khi component bị hủy
         return () => {
           clearInterval(intervalId);
         };
@@ -32,7 +29,6 @@ export default function WhyWe() {
 
     useEffect(() => {
         const handleScroll = () => {
-        // Kiểm tra nếu phần tử `WhyWe` nằm trong tầm nhìn
         const element = document.querySelector('.why-we');
         if (element) {
             const rect = element.getBoundingClientRect();
@@ -41,7 +37,7 @@ export default function WhyWe() {
         };
 
         window.addEventListener('scroll', handleScroll);
-        handleScroll(); // Kiểm tra trạng thái ban đầu khi trang được tải
+        handleScroll(); 
 
         return () => {
         window.removeEventListener('scroll', handleScroll);
@@ -76,6 +72,9 @@ export default function WhyWe() {
 
             <div className='whyus-bg'>
                 <img src={imagePaths[currentImageIndex]} alt='whyus' />
+                {/* <img className='img1' src={whyus1} alt='a'/>
+                <img className='img2' src={whyus2} alt='a'/>
+                <img className='img3' src={whyus3} alt='a'/> */}
             </div>
 
             <div className='whyus-content-right'>

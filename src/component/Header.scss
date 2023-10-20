@@ -1,5 +1,17 @@
 @import '../global.scss';
 
+
+@keyframes slideInText {
+    from {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
 .App-header {
     position: relative;
     width: 100%;
@@ -126,11 +138,53 @@
                     font-size: 14px;
                     font-weight: 300;
                     letter-spacing: 1px;
-                    cursor: pointer;
+                    opacity: 0;
+                    cursor: pointer; 
+                    transition: all 1s ease-in;
+                     &:nth-child(1) {
+                        animation: slideInText 0.06s ease-in;
+                        animation-delay: 0.1s;
+                        animation-fill-mode: forwards;
+                      }
+                  
+                      &:nth-child(2) {
+                        animation: slideInText 0.1s ease-in;
+                        animation-delay: 0.2s;
+                        animation-fill-mode: forwards;
+                      }
+                  
+                      &:nth-child(3) {
+                        animation: slideInText 0.2s ease-in;
+                        animation-delay: 0.3s;
+                        animation-fill-mode: forwards;
+                      }
+                  
+                      &:nth-child(4) {
+                        animation: slideInText 0.2s ease-in;
+                        animation-delay: 0.4s;
+                        animation-fill-mode: forwards;
+                      }
+                  
+                      &:nth-child(5) {
+                        animation: slideInText 0.4s ease-in;
+                        animation-delay: 0.6s;
+                        animation-fill-mode: forwards;
+                      }
+                  
+                      &:nth-child(6) {
+                        animation: slideInText 0.6s ease-in;
+                        animation-delay: 0.9s;
+                        animation-fill-mode: forwards;
+                      }
+                      &:nth-child(7) {
+                        animation: slideInText 0.8s ease-in;
+                        animation-delay: 1s;
+                        animation-fill-mode: forwards;
+                      }
                     a {
                         text-decoration: none;
                         color: inherit; /* sử dụng màu kế thừa từ phần tử cha */
-                      }
+                    }
                 }
             }
             .contact {
@@ -138,10 +192,14 @@
                 text-align: right;
                 transform: translateY(15px);
                 color: white;
+                opacity: 0;
                 font-size: 14px;
                 font-weight: 300;
                 letter-spacing: 1px;
                 cursor: pointer;
+                animation: slideInText 1s ease-in;
+                animation-delay: 1.2s;
+                animation-fill-mode: forwards;
                 a {
                     text-decoration: none;
                     color: inherit; /* sử dụng màu kế thừa từ phần tử cha */
@@ -163,10 +221,14 @@
         h2 {
             font-size: 55px;
             line-height: 28px;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             text-transform: uppercase;
             color: #fff;
             font-weight: 300;
+            opacity: 0;
+            animation: slideInText 2s ease-in;
+            animation-delay: 1.5s;
+            animation-fill-mode: forwards;
         }
 
         p {
@@ -174,7 +236,10 @@
             margin-top: 10px;
             color: #fff;
             font-weight: 300;
-            transform: translateY(-12px);
+            opacity: 0;
+            animation: slideInText 2s ease-in;
+            animation-delay: 2s;
+            animation-fill-mode: forwards;
         }
 
         .button {
@@ -188,7 +253,11 @@
             border-radius: 20px;
             box-shadow: inset 0 -2px 0 0 rgba(0,0,0,0.16);
             background-color: #42C3D6;
+            opacity: 0;
             margin-top: 18px;
+            animation: slideInText 2s ease-in;
+            animation-delay: 3s;
+            animation-fill-mode: forwards;
             &:hover {
                 cursor: pointer;
                 background-color: #3c3c3c;

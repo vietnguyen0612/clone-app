@@ -10,6 +10,7 @@ import Testimonial from './component/Testimonial';
 import News from './component/News';
 import VideoSection from './component/VideoSection';
 import AboutUs from './component/AboutUs';
+import Contact from './component/Contact';
 function App() {
   return (
     <div className="App">
@@ -21,7 +22,8 @@ function App() {
       <Testimonial />
       <News />
       <VideoSection />
-      <AboutUs />
+      {/* <AboutUs /> */}
+      <Contact />
 
       <div className='back-ground-reviews'></div>
     </div>

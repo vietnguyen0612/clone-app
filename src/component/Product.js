@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef,useState } from 'react'
 import './Product.scss'
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -28,8 +28,15 @@ import { GrFormNext } from 'react-icons/gr';
 import { GrFormPrevious } from 'react-icons/gr';
 import { IoSearchCircleOutline } from 'react-icons/io5';
 import { AiOutlinePlusCircle } from 'react-icons/ai';
+import { TfiClose } from 'react-icons/tfi';
 export default function Product() {
 
+    const[currentProduct, setCurrentProduct] = useState(0)
+
+    const [isOpenChoseProduct, setIsOpenChoseProduct] = useState(false)
+    const [isOpenCartProduct, setIsOpenCartProduct] = useState(false)
+    const listProduct = [];
+    const total = 0;
     const bags = [
         {
             id: 1,
@@ -175,14 +182,81 @@ export default function Product() {
             sliderRef.current.slickNext();
         }
     }
+
+    const handleClickChoseProduct = () => {
+        setIsOpenChoseProduct(!isOpenChoseProduct);
+    }
+
+    const handleClickCartProduct = () =>{
+        setIsOpenCartProduct(!isOpenCartProduct);
+    }
   return (
     <div className='product-component' id='product'>
+
+        <div onClick={handleClickChoseProduct} className={`choses-product ${isOpenChoseProduct ? "active": ''}`}>
+            <div className='contain'>
+                <div className='icon-close'> 
+                    <TfiClose className='icon'/>
+                </div>
+                <ul className='product-type'>
+                    <li>Bags</li>
+                    <li>Jeans</li>
+                    <li>Shirts</li>
+                    <li>Shoes</li>
+                    <li>Shorts</li>
+                    <li>T-shirt</li>
+                </ul>
+
+            </div>
+        </div>
+
+        <div  className={`cart-product ${isOpenCartProduct ? "active": ''}`}>
+            <div className='closes'>
+                <TfiClose className='icon' onClick={handleClickCartProduct}/>
+
+            </div>
+            <div className='contain'>
+                <div className='total-list-product'>
+                    <div className='list-product'>
+
+                    </div>
+
+                    <div className='total'>
+                        <span>TOTAL</span>
+                        <span>${total}</span>
+                    </div>
+                </div>
+
+                <div className='personal-imformation'>
+                    <input type='text' placeholder='Name' name='name' />                    
+                    <input type='text' placeholder='Email' name='email' />   
+                    <input type='text' placeholder='Phone Number' name='phonenumber' />
+
+                    <div className='btn'>
+                        Send
+                    </div>                 
+                </div>
+
+
+
+            </div>
+        </div>
+
         <h1 className='text'>WE MAKE YOU AWESOME</h1> 
 
         <div className='tab-bar'>
             <div>
-                <AiOutlineBars style={{ fontSize: '32px',cursor: "pointer", borderRight: "1px solid #ccc", paddingRight: "10px"}} />
-                <BiCart style={{ fontSize: '32px',cursor: "pointer", paddingLeft: "10px"}}/>
+                <AiOutlineBars 
+                    onClick={handleClickChoseProduct}
+                    style={{ fontSize: '32px',cursor: "pointer", borderRight: "1px solid #ccc", paddingRight: "10px"}} 
+                />
+
+                <div className='cart' onClick={handleClickCartProduct}>
+                    <BiCart style={{ fontSize: '32px',cursor: "pointer", paddingLeft: "10px"}}/>
+                    <div className='current-product'>
+                        {currentProduct}
+                    </div>
+                </div>
             </div>
             <div>
                 
@@ -193,47 +267,6 @@ export default function Product() {
 
         </div>
 
-        <div className='slider pc' >
-            <Slider ref={sliderRef} {...settings}>
-
-                {
-                    bags.map((item, index) => {
-                        return(
-                            <div className="product-slider">
-                                <div className='image'>
-                                    <img src={item.image} alt='cặp'/>
-                                </div>
-                                <div className='description'>
-                                    <div className='prices'>
-                                        <div className='price old-price'>
-                                            ${item.oldPrice}
-                                        </div>
-                                        <div className='price new-price'>
-                                            ${item.newPrice}
-                                        </div>
-                                    </div>
-                                    <div className='product-name'>
-                                        <div className='name'>
-                                            {item.name}
-                                        </div>
-                                        <div className='band'>
-                                            {item.description}
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div className='search-add-product'>
-                                    <IoSearchCircleOutline className='search-icon' />
-                                    <AiOutlinePlusCircle  className='add-icon'/> 
-                                </div>
-                            </div>
-                        )
-                    })
-
-                    
-                }
-            </Slider>
-        </div>
         <div className='slider tablet'>
             <Slider ref={sliderRef} {...setting2s}>
 
@@ -277,6 +310,47 @@ export default function Product() {
         </div>
         <div className='slider mobile'>
             <Slider ref={sliderRef} {...setting3s}>
+
+                {
+                    bags.map((item, index) => {
+                        return(
+                            <div className="product-slider">
+                                <div className='image'>
+                                    <img src={item.image} alt='cặp'/>
+                                </div>
+                                <div className='description'>
+                                    <div className='prices'>
+                                        <div className='price old-price'>
+                                            ${item.oldPrice}
+                                        </div>
+                                        <div className='price new-price'>
+                                            ${item.newPrice}
+                                        </div>
+                                    </div>
+                                    <div className='product-name'>
+                                        <div className='name'>
+                                            {item.name}
+                                        </div>
+                                        <div className='band'>
+                                            {item.description}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className='search-add-product'>
+                                    <IoSearchCircleOutline className='search-icon' />
+                                    <AiOutlinePlusCircle  className='add-icon'/> 
+                                </div>
+                            </div>
+                        )
+                    })
+
+                    
+                }
+            </Slider>
+        </div>
+        <div className='slider pc' >
+            <Slider ref={sliderRef} {...settings}>
 
                 {
                     bags.map((item, index) => {

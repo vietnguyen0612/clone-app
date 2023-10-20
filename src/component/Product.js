@@ -1,4 +1,4 @@
-import React, { useRef,useState } from 'react'
+import React, { useRef,useState, useEffect } from 'react'
 import './Product.scss'
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -36,7 +36,7 @@ export default function Product() {
     const [isOpenChoseProduct, setIsOpenChoseProduct] = useState(false)
     const [isOpenCartProduct, setIsOpenCartProduct] = useState(false)
     const [isOpenDetailProduct, setIsOpenDetailProduct] = useState(false)
-    const listProduct = [];
+    const [listProduct, setListProduct] = useState([]);
     const total = 0;
     const bags = [
         {
@@ -199,6 +199,20 @@ export default function Product() {
     const handleClickBackProduct = ()=> {
         setIsOpenDetailProduct(false)
     }
+
+    const handleAddProduct = (product) => {
+        setListProduct([...listProduct, product]);
+        setCurrentProduct((prev) => prev + 1);
+        const cartCount = document.getElementById('cart-count');
+        cartCount.classList.add('bounce');
+        setTimeout(() => {
+            cartCount.classList.remove('bounce');
+        }, 1000); 
+      }
+      
+      useEffect(() => {
+        console.log(listProduct);
+      }, [currentProduct]);
   return (
     <div className='product-component' id='product'>
 
@@ -226,25 +240,26 @@ export default function Product() {
             </div>
             <div className='contain'>
                 <div className='total-list-product'>
-                    <div className='list-product'>
-                        <div>Cayler And Sons Milano Backpack</div>
-                        <div>Cayler And Sons Milano Backpack</div>
-                        <div>Cayler And Sons Milano Backpack</div>
-                        <div>Cayler And Sons Milano Backpack</div>
-                        <div>Cayler And Sons Milano Backpack</div>
-                        <div>Cayler And Sons Milano Backpack</div>
-                        <div>Cayler And Sons Milano Backpack</div>
-                        <div>Cayler And Sons Milano Backpack</div>
-                        <div>Cayler And Sons Milano Backpack</div>
-                        <div>Cayler And Sons Milano Backpack</div>
-                        <div>Cayler And Sons Milano Backpack</div>
-                        <div>Cayler And Sons Milano Backpack</div>
-                        <div>Cayler And Sons Milano Backpack</div>
-                        <div>Cayler And Sons Milano Backpack</div>
-                        <div>Cayler And Sons Milano Backpack</div>
-                        <div>Cayler And Sons Milano Backpack</div>
-                        <div>Cayler And Sons Milano Backpack</div>
-                    </div>
+                <div className='list-product'>
+                    {listProduct?.map((productItem) => {
+                        return (
+                            
+                                <div className='product'>
+                                    <div className='product-name'>
+                                        {productItem.name}
+                                    </div>
+                                    <div className='product-price'>
+                                        ${productItem.newPrice}
+                                    </div>
+                                    <div className='delete'>
+                                        <TfiClose className='icon'/>
+                                    </div>
+                                </div>
+                            
+
+                        )
+                    }) }
+                </div> 
 
                     <div className='total'>
                         <span>TOTAL</span>
@@ -278,7 +293,7 @@ export default function Product() {
                 </div>
                 <div className='detail'>
                     <div className='price'>
-                        <p className='new-price'>{itemSearchProduct.oldPrice}.00$</p>
+                        <p className='new-price'>{itemSearchProduct.newPrice}.00$</p>
                         <p className='old-price'>{itemSearchProduct.oldPrice}.00$</p>
                     </div>
                     <div className='product-name'>{itemSearchProduct.name}</div>
@@ -302,7 +317,7 @@ export default function Product() {
 
                 <div className='cart' onClick={handleClickCartProduct}>
                     <BiCart style={{ fontSize: '32px',cursor: "pointer", paddingLeft: "10px"}}/>
-                    <div className='current-product'>
+                    <div className='current-product' id='cart-count'>
                         {currentProduct}
                     </div>
                 </div>
@@ -347,7 +362,7 @@ export default function Product() {
 
                                 <div className='search-add-product'>
                                     <IoSearchCircleOutline className='search-icon' onClick={() => handleClickSearch(item)}  />
-                                    <AiOutlinePlusCircle  className='add-icon'/> 
+                                    <AiOutlinePlusCircle  className='add-icon' onClick={() =>handleAddProduct(item) } /> 
                                 </div>
                             </div>
                         )
@@ -388,7 +403,7 @@ export default function Product() {
 
                                 <div className='search-add-product'>
                                     <IoSearchCircleOutline className='search-icon' onClick={() => handleClickSearch(item)}  />
-                                    <AiOutlinePlusCircle  className='add-icon'/> 
+                                    <AiOutlinePlusCircle  className='add-icon' onClick={() =>handleAddProduct(item) }/> 
                                 </div>
                             </div>
                         )
@@ -429,7 +444,7 @@ export default function Product() {
 
                                 <div className='search-add-product'>
                                     <IoSearchCircleOutline className='search-icon' onClick={() => handleClickSearch(item)}  />
-                                    <AiOutlinePlusCircle  className='add-icon'/> 
+                                    <AiOutlinePlusCircle  className='add-icon' onClick={() =>handleAddProduct(item) }/> 
                                 </div>
                             </div>
                         )

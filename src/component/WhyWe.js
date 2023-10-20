@@ -13,8 +13,9 @@ import { ImDatabase } from 'react-icons/im';
 export default function WhyWe() {
 
     const imagePaths = [whyus1, whyus2, whyus3];
-
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const [isVisible, setIsVisible] = useState(false);
+
     useEffect(() => {
         // Sử dụng setInterval để cập nhật hình ảnh sau mỗi khoảng thời gian (ví dụ: sau 3 giây)
         const intervalId = setInterval(() => {
@@ -27,13 +28,33 @@ export default function WhyWe() {
           clearInterval(intervalId);
         };
       }, []);
+
+
+    useEffect(() => {
+        const handleScroll = () => {
+        // Kiểm tra nếu phần tử `WhyWe` nằm trong tầm nhìn
+        const element = document.querySelector('.why-we');
+        if (element) {
+            const rect = element.getBoundingClientRect();
+            setIsVisible(rect.top < window.innerHeight);
+        }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        handleScroll(); // Kiểm tra trạng thái ban đầu khi trang được tải
+
+        return () => {
+        window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+      
   return (
     <div className='why-we' id='why-us'>
         <h2 className='title'>WHY PEOPLE CHOOSE TRIABLO?</h2>
         <div className='whyus-content'> 
 
             <div className='whyus-content-left'>
-                <div className='up child'>
+                <div className={`up child ${isVisible ? 'visible' : ''}`}>
                     <div className='content'>
                         <h3>PREORDER SYSTEM</h3>
                         <p>
@@ -42,7 +63,7 @@ export default function WhyWe() {
                     </div>
                     <SlTag className='icon'/>
                 </div>
-                <div className='down child'>
+                <div className={`down child ${isVisible ? 'visible' : ''}`}>
                     <div className='content'>
                         <h3>RETINA READY</h3>
                         <p>
@@ -58,7 +79,7 @@ export default function WhyWe() {
             </div>
 
             <div className='whyus-content-right'>
-                <div className='up child'>
+                <div className={`up child ${isVisible ? 'visible' : ''}`}>
                     <GoDeviceMobile className='icon'/>
                     <div className='content'>
                         <h3>PREORDER SYSTEM</h3>
@@ -67,7 +88,7 @@ export default function WhyWe() {
                         </p>
                     </div>
                 </div>
-                <div className='down child'>
+                <div className={`down child ${isVisible ? 'visible' : ''}`}>
                     <ImDatabase className='icon'/>
                     <div className='content'>
                         <h3>PREORDER SYSTEM</h3>

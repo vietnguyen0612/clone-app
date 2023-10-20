@@ -1,3 +1,4 @@
+@import "../global.scss";
 .product-component {
     padding-top: 80px;
     background-color: white;
@@ -23,6 +24,44 @@
     .slider {
         max-width: 1000px;
         margin: 0 auto;
+
+        &.pc {
+            @include tablet {
+            
+                display: none;
+   
+           }
+           @include mobile {
+            
+            display: none;
+
+            }
+        }
+
+        &.tablet {
+            display: none;
+            @include tablet {
+            
+                display: unset;
+           }
+
+           @include mobile {
+            
+            display: none;
+            }
+
+        }
+        &.mobile {
+            display: none;
+            @include tablet {
+            
+                display: none;
+           }
+           @include mobile {
+            
+            display: unset;
+            }
+        }
 
         .product-slider {
             position: relative;
@@ -121,12 +160,32 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-
+        @include tablet {
+            padding: 0 20px;
+            padding-bottom: 50px;
+        }
+        @include mobile {
+            padding: 0 20px;
+            padding-bottom: 50px;
+        }
         .band {
             transform-style: preserve-3d;
             cursor: pointer;
             height: 20px;
             width: 180px;
+            @include tablet {
+                height: 18px;
+                 width: 160px;
+                
+            }
+            @include mobile {
+                height: 13px;
+                     width: 100px;
+                &.band4 {
+                    
+                    display: none;
+                }
+            }
         }
     }
 }

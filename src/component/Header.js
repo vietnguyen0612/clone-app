@@ -12,14 +12,15 @@ export default function () {
     <div className="App-header" id='header'>
         <div className= {`menu-tablet-mobile ${isOpenMenu ? 'active' : ''}`}>
             <ul>
-                <li> <a href='#product'>PRODUCTS</a></li>
-                <li> <a href='#brand'>BRANDS</a></li>
-                <li>WHY TRIABLO</li>
-                <li>TEAM</li>
-                <li>REVIEWS</li>
-                <li>ABOUT US</li>
-                <li>NEWS</li>
-                <li>CONTACTS</li>
+                <li onClick={handleClick}> <a href='#product'>PRODUCTS</a></li>
+                <li onClick={handleClick}> <a href='#band'>BRANDS</a></li>
+                <li onClick={handleClick}> <a href='#why-us'>WHY TRIABLO</a></li>
+                <li onClick={handleClick}> <a href='#team'>TEAM</a></li>
+                <li onClick={handleClick}> <a href='#review'>REVIEWS</a></li>
+                <li onClick={handleClick}> <a href='#about'>ABOUT US</a></li>
+                <li onClick={handleClick}> <a href='#news'>NEWS</a></li>
+                <li onClick={handleClick}> <a href='#contact'>CONTACT</a></li>
+
             </ul>
         </div>
 

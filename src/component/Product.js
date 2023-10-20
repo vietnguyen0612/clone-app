@@ -148,6 +148,23 @@ export default function Product() {
         nextArrow: <div className="slick-arrow slick-next">Phải</div>,
     };
       
+    const setting2s = {
+        infinite: true,
+        slidesToShow: 3, // Số sản phẩm hiển thị trong mỗi hàng
+        slidesToScroll: 1, // Số sản phẩm di chuyển khi trượt
+        rows: 2, // Số hàng sản phẩm
+        prevArrow: <div className="slick-arrow slick-prev">Trái</div>,
+        nextArrow: <div className="slick-arrow slick-next">Phải</div>,
+    };
+
+    const setting3s = {
+        infinite: true,
+        slidesToShow: 1, // Số sản phẩm hiển thị trong mỗi hàng
+        slidesToScroll: 1, // Số sản phẩm di chuyển khi trượt
+        prevArrow: <div className="slick-arrow slick-prev">Trái</div>,
+        nextArrow: <div className="slick-arrow slick-next">Phải</div>,
+    };
+
     const handlePrev = () => {
         if (sliderRef.current) {
             sliderRef.current.slickPrev();
@@ -176,7 +193,7 @@ export default function Product() {
 
         </div>
 
-        <div className='slider'>
+        <div className='slider pc' >
             <Slider ref={sliderRef} {...settings}>
 
                 {
@@ -215,17 +232,95 @@ export default function Product() {
 
                     
                 }
-                
-                
-
             </Slider>
         </div>
+        <div className='slider tablet'>
+            <Slider ref={sliderRef} {...setting2s}>
 
+                {
+                    bags.map((item, index) => {
+                        return(
+                            <div className="product-slider">
+                                <div className='image'>
+                                    <img src={item.image} alt='cặp'/>
+                                </div>
+                                <div className='description'>
+                                    <div className='prices'>
+                                        <div className='price old-price'>
+                                            ${item.oldPrice}
+                                        </div>
+                                        <div className='price new-price'>
+                                            ${item.newPrice}
+                                        </div>
+                                    </div>
+                                    <div className='product-name'>
+                                        <div className='name'>
+                                            {item.name}
+                                        </div>
+                                        <div className='band'>
+                                            {item.description}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className='search-add-product'>
+                                    <IoSearchCircleOutline className='search-icon' />
+                                    <AiOutlinePlusCircle  className='add-icon'/> 
+                                </div>
+                            </div>
+                        )
+                    })
+
+                    
+                }
+            </Slider>
+        </div>
+        <div className='slider mobile'>
+            <Slider ref={sliderRef} {...setting3s}>
+
+                {
+                    bags.map((item, index) => {
+                        return(
+                            <div className="product-slider">
+                                <div className='image'>
+                                    <img src={item.image} alt='cặp'/>
+                                </div>
+                                <div className='description'>
+                                    <div className='prices'>
+                                        <div className='price old-price'>
+                                            ${item.oldPrice}
+                                        </div>
+                                        <div className='price new-price'>
+                                            ${item.newPrice}
+                                        </div>
+                                    </div>
+                                    <div className='product-name'>
+                                        <div className='name'>
+                                            {item.name}
+                                        </div>
+                                        <div className='band'>
+                                            {item.description}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className='search-add-product'>
+                                    <IoSearchCircleOutline className='search-icon' />
+                                    <AiOutlinePlusCircle  className='add-icon'/> 
+                                </div>
+                            </div>
+                        )
+                    })
+
+                    
+                }
+            </Slider>
+        </div>
         <div className="bands" id='band'>
             <img className='band' src={band1} alt='thuong hieu' />
             <img className='band' src={band2} alt='thuong hieu' />
             <img className='band' src={band3} alt='thuong hieu' />
-            <img className='band' src={band4} alt='thuong hieu' />
+            <img className='band band4' src={band4} alt='thuong hieu' />
         </div>
     </div>
   )

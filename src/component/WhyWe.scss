@@ -1,3 +1,26 @@
+@import  "../global.scss";
+@keyframes sideRight {
+    from {
+      transform: translateX(-25%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes sideLeft {
+    from {
+      transform: translateX(25%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
 .why-we {
     background-color: #eeeced;
     padding-top: 75px;
@@ -11,10 +34,34 @@
 
     .whyus-content {
         max-width: 1000px;
+        height: auto;
         margin: 0 auto;
         display: flex;
+        justify-content: space-between;
+        @include tablet {
+            flex-wrap: wrap;
+            .whyus-bg {
+                order: 3;
+               flex: 1;
+               text-align: center;
+            }
+        }
 
         .whyus-content-left {
+            .up.child{
+                &.visible {
+                    animation: sideRight 0.7s ease-in;
+                    animation-delay: 0.4s;
+                    animation-fill-mode: forwards;
+                }
+            }
+            .down.child{
+                &.visible {
+                    animation: sideRight 0.7s ease-in;
+                    animation-delay: 0.5s;
+                    animation-fill-mode: forwards;
+                }
+            }
             .content {
                 margin: 35px;
                 h3 {
@@ -32,11 +79,14 @@
                     line-height: 26px;
                     color: #424242;
                     font-weight: 300;
+                    font-family: 'Fira Sans',sans-serif;
                 }
             }
         }
 
         .whyus-bg {
+            
+            height: 590px;
             img {
                 height: 590px;
                 width: 340px;
@@ -44,6 +94,21 @@
         }
 
         .whyus-content-right {
+            
+            .up.child{
+                &.visible {
+                    animation: sideLeft 0.7s ease-in;
+                    animation-delay: 0.4s;
+                    animation-fill-mode: forwards;
+                }
+            }
+            .down.child{
+                &.visible {
+                    animation: sideLeft 0.7s ease-in;
+                    animation-delay: 0.5s;
+                    animation-fill-mode: forwards;
+                }
+            }
             .content {
                 margin: 35px;
                 h3 {
@@ -61,13 +126,16 @@
                     line-height: 26px;
                     color: #424242;
                     font-weight: 300;
+                    font-family: 'Fira Sans',sans-serif;
                 }
             }
         }
 
         .child {
             display: flex;
+            width: 345px;
             align-items: center;
+            opacity: 0;
             .icon {
                 font-size: 150px;
             }

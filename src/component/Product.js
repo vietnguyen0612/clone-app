@@ -32,9 +32,10 @@ import { TfiClose } from 'react-icons/tfi';
 export default function Product() {
 
     const[currentProduct, setCurrentProduct] = useState(0)
-
+    const [itemSearchProduct, setItemSearchProduct] = useState({})
     const [isOpenChoseProduct, setIsOpenChoseProduct] = useState(false)
     const [isOpenCartProduct, setIsOpenCartProduct] = useState(false)
+    const [isOpenDetailProduct, setIsOpenDetailProduct] = useState(false)
     const listProduct = [];
     const total = 0;
     const bags = [
@@ -190,6 +191,14 @@ export default function Product() {
     const handleClickCartProduct = () =>{
         setIsOpenCartProduct(!isOpenCartProduct);
     }
+
+    const handleClickSearch = (item) => {
+        setItemSearchProduct(item)
+        setIsOpenDetailProduct(true)
+    }
+    const handleClickBackProduct = ()=> {
+        setIsOpenDetailProduct(false)
+    }
   return (
     <div className='product-component' id='product'>
 
@@ -258,6 +267,30 @@ export default function Product() {
             </div>
         </div>
 
+        <div className={`detail-product ${isOpenDetailProduct ? "active": ''}`}>
+            <div className='closes'>
+                <TfiClose className='icon' onClick={handleClickBackProduct}/>
+
+            </div>
+            <div className='container'>
+                <div className='image'>
+                    <img src={itemSearchProduct.image} alt='abc' />
+                </div>
+                <div className='detail'>
+                    <div className='price'>
+                        <p className='new-price'>{itemSearchProduct.oldPrice}.00$</p>
+                        <p className='old-price'>{itemSearchProduct.oldPrice}.00$</p>
+                    </div>
+                    <div className='product-name'>{itemSearchProduct.name}</div>
+                    <div className='description'>Lorem ipsum dolor sit amet, consectetur adipisicing.</div>
+                    <div className='button'>
+                        Add to cart
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
         <h1 className='text'>WE MAKE YOU AWESOME</h1> 
 
         <div className='tab-bar'>
@@ -289,7 +322,7 @@ export default function Product() {
                 {
                     bags.map((item, index) => {
                         return(
-                            <div className="product-slider">
+                            <div className="product-slider" key={index}>
                                 <div className='image'>
                                     <img src={item.image} alt='cặp'/>
                                 </div>
@@ -313,7 +346,7 @@ export default function Product() {
                                 </div>
 
                                 <div className='search-add-product'>
-                                    <IoSearchCircleOutline className='search-icon' />
+                                    <IoSearchCircleOutline className='search-icon' onClick={() => handleClickSearch(item)}  />
                                     <AiOutlinePlusCircle  className='add-icon'/> 
                                 </div>
                             </div>
@@ -354,7 +387,7 @@ export default function Product() {
                                 </div>
 
                                 <div className='search-add-product'>
-                                    <IoSearchCircleOutline className='search-icon' />
+                                    <IoSearchCircleOutline className='search-icon' onClick={() => handleClickSearch(item)}  />
                                     <AiOutlinePlusCircle  className='add-icon'/> 
                                 </div>
                             </div>
@@ -395,7 +428,7 @@ export default function Product() {
                                 </div>
 
                                 <div className='search-add-product'>
-                                    <IoSearchCircleOutline className='search-icon' />
+                                    <IoSearchCircleOutline className='search-icon' onClick={() => handleClickSearch(item)}  />
                                     <AiOutlinePlusCircle  className='add-icon'/> 
                                 </div>
                             </div>

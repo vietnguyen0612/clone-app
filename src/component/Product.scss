@@ -199,6 +199,110 @@
         }
     }
 
+    .detail-product {
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: #f1f1f1;
+        width: 100vw;
+        height: 100vh;
+        z-index: 10000;
+        transform: translateX(-100%);
+        transition: all 1s ease-in-out;
+
+        .closes {
+            position: absolute;
+            top: 5%;
+            right: 5%;
+
+            .icon {
+                font-size: 25px;
+                cursor: pointer;
+            }
+        }
+
+        &.active {
+            transform: translateX(0);
+        }
+
+        .container {
+            max-width: 1000px;
+            height: 70vh;
+            margin: 80px auto;
+            display: flex;
+            justify-content: space-between;
+
+            .image {
+                width: 47%;
+                text-align: right;
+                img {
+                    height: 100%;
+                }
+            }   
+            .detail {
+                width: 47%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                transform: translateY(-35px);
+
+                .price {
+                    display: flex;
+                    align-items: center;
+                    .new-price {
+                        font-family: 'Fira Sans',sans-serif;
+                        color:#d93c3c;
+                        font-weight: 700;
+                        font-size: 22px;
+                        margin: 15px 0;
+
+                    }
+                    .old-price {
+                        margin-left: 10px;
+                        color: #424242;
+                        font-size: 15px;
+                        text-decoration: line-through;
+                        margin: 15px 5px;
+
+                    }
+
+                }
+                .product-name {
+                    font-family: 'Fira Sans',sans-serif;
+                    font-size: 22px;
+                    color: #424242;
+                    line-height: 26px;
+                    max-width: 80%;
+                    margin-bottom: 28px;
+                }
+
+                .description {
+                    font-size: 15px;
+                    color: #545454;
+                    line-height: 21px;
+                    margin-bottom: 37px;
+                }
+
+                .button {
+                    color: #fff;
+                    width: 190px;
+                    height: 40px;
+                    font-size: 18px;
+                    line-height: 39px;
+                    border-radius: 38px;
+                    background-color: #42C3D6;
+                    text-align: center;
+                    cursor: pointer;
+                    &:hover {
+                        background-color: #353535;
+                    }
+                }
+                
+            }
+
+        }
+    }
+
     h1 {
         text-align: center;
         font-size: 40px;
@@ -301,10 +405,11 @@
                     
                     .search-icon {
                         font-size: 45px;
-                       
+                        z-index: 100;
                     }
                     .add-icon {
                         font-size: 40px;
+                        z-index: 100;
                     }
                 }
             }

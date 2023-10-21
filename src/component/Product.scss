@@ -265,11 +265,25 @@
             display: flex;
             justify-content: space-between;
 
+            @include mobile {
+                width: 100vw;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+
             .image {
                 width: 47%;
                 text-align: right;
+
+                @include mobile {
+                    width: 80%;
+                    text-align: center;
+                }
                 img {
                     height: 100%;
+
+                    
                 }
             }   
             .detail {
@@ -278,10 +292,18 @@
                 flex-direction: column;
                 justify-content: center;
                 transform: translateY(-35px);
+                @include mobile {
+                    width: 75%;
+                    transform: translateY(0);
+                    align-items: center;
+                }
 
                 .price {
                     display: flex;
                     align-items: center;
+                    @include mobile {
+
+                    }
                     .new-price {
                         font-family: 'Fira Sans',sans-serif;
                         color:#d93c3c;
@@ -314,6 +336,10 @@
                     color: #545454;
                     line-height: 21px;
                     margin-bottom: 37px;
+
+                    @include mobile {
+                        text-align: center;
+                    }
                 }
 
                 .button {
